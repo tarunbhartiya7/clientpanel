@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+.btn{
+    border-radius: 0 !important;
+}
+
+// .myalert{
+//     color: #ff5252;
+//     font-size: 14px;
+//     line-height: 20px;
+// }
+
+// .myalert-input-valid{
+//     box-shadow: 0 -2px 0 #039be5 inset,0 0 0 1px #e0e0e0 inset;
+// }
+
+// .myalert-input-invalid{
+//     box-shadow: 0 -2px 0 #ff5252 inset,0 0 0 1px #e0e0e0 inset;
+// }
+
+.form-control.is-invalid:focus, .form-control.is-invalid{
+    border-color:  #d3d3d3 !important;
+    box-shadow: 0 -2px 0 #ff5252 inset,0 0 0 1px #e0e0e0 inset !important;
+}
+
+.form-control.is-valid:focus, .form-control.is-valid{
+    border-color:  #d3d3d3 !important;
+    box-shadow: 0 -2px 0 #039be5 inset,0 0 0 1px #e0e0e0 inset !important;
+}
+
+// .form-control.is-invalid, .form-control.is-valid{
+//     border-color:  #d3d3d3 !important;
+// }
+
+.form-control:focus {
+    border-color:  #d3d3d3 !important;
+    // box-shadow: 0 -2px 0 #039be5 inset,0 0 0 1px #e0e0e0 inset;
+}
+
+.alert p{
+    margin: 0;
+    padding: 0;
+}
