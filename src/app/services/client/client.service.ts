@@ -7,7 +7,6 @@ import { Client } from './../../models/client.model';
 export class ClientService {
   clientsRef: AngularFireList<any>;
   clients: Observable<any[]>;
-  clientRef: AngularFireObject<any>;
   client: Observable<any>;  
 
   constructor(
@@ -24,14 +23,20 @@ export class ClientService {
     return this.clients;
   }
 
-  addClient(value: Client){
+  newClient(value: Client){
     this.clientsRef.push(value);
   }
 
-  getClient(id){
-    this.clientRef = this.af.object('/Clients/'+id); 
-    this.clientRef.remove();
-    // this.client = this.clientRef.snapshotChanges();
-    // return this.client;
+  getClient(id:  string){
+   this.client = this.af.object('/clients/'+id).valueChanges();
+   return this.client;
+  }
+
+  updateClient(id: string, client: Client){
+    this.clientsRef.update(id, client);
+  }
+
+  deleteClient(id: string){
+    this.clientsRef.remove(id);
   }
 }

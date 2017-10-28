@@ -29,7 +29,6 @@ export class ClientsComponent implements OnInit {
 
   ngOnInit() {
     this.clientService.getClients().subscribe(clients => {
-      console.log(clients);
       this.clients = clients;
       this.getTotal();
     });
@@ -39,7 +38,7 @@ export class ClientsComponent implements OnInit {
   getTotal() {
     let total = 0;
     this.clients.forEach(client => {
-      total += +client.data.balance;
+      total += +client.balance;
     });
     this.totalOwed = total;
   }

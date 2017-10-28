@@ -25,11 +25,30 @@ export class ClientDetailsComponent implements OnInit {
   ngOnInit() {
     // Get ID
     this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
-    
     // Get Client
-    this.clientService.getClient(this.id);
-    
+    this.clientService.getClient(this.id).subscribe(client => {
+      client.balance > 0 ? this.hasBalance = true : false;
+      this.client = client;
+    });
+  }
+
+  updateBalance(id: string){
+    !this.client.balance ? this.client.balance = 0 : false; 
+    this.clientService.updateClient(this.id, this.client);
+    this.flashMessagesService.show('Balance has been successfully updated.', {cssClass: 'alert-success', timeout: 3000});  
+    // this.flashMessagesService.grayOut(true); // turn on gray out feature
+    this.showBalanceUpdateInput = false;      
+    this.client.balance > 0 ? this.hasBalance = true : this.hasBalance = false ;    
+    // this.router.navigate(['/client/'+this.id ]); 
+  }
+
+  onDeleteClick(){
+    if(confirm('Are you sure to delete?')){
+      this.clientService.deleteClient(this.id);
+      this.flashMessagesService.show('The Client has been succesfully deleted.', {cssClass: 'alert-success', timeout: 3000}); 
+      // this.flashMessagesService.grayOut(true); // turn on gray out feature 
+      this.router.navigate(['/']);  //navigate to the dashboard
+    }
   }
 
 }

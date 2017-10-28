@@ -3,20 +3,16 @@
     border-radius: 0 !important;
 }
 
-// .myalert{
-//     color: #ff5252;
-//     font-size: 14px;
-//     line-height: 20px;
-// }
+a{
+    cursor: pointer;
+}
 
-// .myalert-input-valid{
-//     box-shadow: 0 -2px 0 #039be5 inset,0 0 0 1px #e0e0e0 inset;
-// }
+.alert-success{
+    border: 1px solid green !important;
+    content: 'icon placeholder';
+}
 
-// .myalert-input-invalid{
-//     box-shadow: 0 -2px 0 #ff5252 inset,0 0 0 1px #e0e0e0 inset;
-// }
-
+/* Form Validation CSS */
 .form-control.is-invalid:focus, .form-control.is-invalid{
     border-color:  #d3d3d3 !important;
     box-shadow: 0 -2px 0 #ff5252 inset,0 0 0 1px #e0e0e0 inset !important;
@@ -27,16 +23,62 @@
     box-shadow: 0 -2px 0 #039be5 inset,0 0 0 1px #e0e0e0 inset !important;
 }
 
-// .form-control.is-invalid, .form-control.is-valid{
-//     border-color:  #d3d3d3 !important;
-// }
-
 .form-control:focus {
     border-color:  #d3d3d3 !important;
-    // box-shadow: 0 -2px 0 #039be5 inset,0 0 0 1px #e0e0e0 inset;
 }
 
 .alert p{
     margin: 0;
     padding: 0;
+}
+/* Form Validation CSS */
+
+// .flash-message{
+//     position: fixed;
+//     right: 12px;
+//     top: 70px;
+//     background: #7FB873 !important;
+//     color: #FFF !important;
+//     z-index: 9999;
+//     padding-top: 30px !important;
+//     padding-bottom: 30px !important;
+//     font-size: 20px;
+// }
+
+#grayOutDiv
+{
+    background-color: #333;
+    opacity: 0.7;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+//use this for gray out
+// .flash-message
+// {
+//     z-index: 10000;
+//     position: relative;
+//     padding-top: 30px !important;
+//     padding-bottom: 30px !important;
+//     font-size: 18px;
+//     color: #fff !important;
+//     background: #7FB873 !important;
+// }
+.flash-message{
+    z-index: 10000;
+    position: fixed;
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+    font-size: 18px;
+    color: #fff !important;
+    background-color: #51A351 !important;
+    top: 12px;
+    right: 12px;
+    opacity: 0.8;
+    box-shadow: 0 0 12px #999999;
 }

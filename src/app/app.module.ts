@@ -7,7 +7,6 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { environment } from './../environments/environment';
 // COMPONENT IMPORTS
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -23,22 +22,16 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 //SERVICE IMPORTS
 import { ClientService } from './services/client/client.service';
+import { environment } from './../environments/environment';
 
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'add-client', component: AddClientComponent},
-  {path: 'client/:id', component: ClientDetailsComponent}  
+  {path: 'client/:id', component: ClientDetailsComponent},
+  {path: 'edit-client/:id', component: EditClientComponent}  
 ];
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyB6BOAiwBynimpOx3vQGggBDKwJkrz9GHg",
-  authDomain: "clientpanel-a6736.firebaseapp.com",
-  databaseURL: "https://clientpanel-a6736.firebaseio.com",
-  storageBucket: "clientpanel-a6736.appspot.com",
-  messagingSenderId: "759927300530"
-}
 
 @NgModule({
   declarations: [

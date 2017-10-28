@@ -12,12 +12,12 @@
     Add Client
   </div>
   <div class="card-body">
-    <form novalidate #myForm="ngForm" (ngSubmit)="onSubmit(client)">
+    <form novalidate #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
       <div class="form-group">
         <label for="firstName">First Name</label>
         <input type="text" class="form-control" 
           [ngClass]="{
-            'is-invalid':clientFirstName.errors?.required && clientFirstName.touched || clientFirstName.errors?.minlength,
+            'is-invalid':clientFirstName.invalid && clientFirstName.touched,
             'is-valid':clientFirstName.dirty && clientFirstName.valid}"
           [(ngModel)]="client.firstName" name="firstName" #clientFirstName="ngModel" minlength="2" required>
         <div *ngIf="clientFirstName.errors?.required && clientFirstName.touched" class="invalid-feedback">
@@ -32,7 +32,7 @@
         <label for="lastName">Last Name</label>
         <input type="text" class="form-control" 
           [ngClass]="{
-            'is-invalid':clientLastName.errors?.required && clientLastName.touched || clientLastName.errors?.minlength,
+            'is-invalid':clientLastName.invalid && clientLastName.touched,
             'is-valid':clientLastName.dirty && clientLastName.valid}"
           [(ngModel)]="client.lastName" name="lastName" #clientLastName="ngModel" minlength="2" required>
         <div *ngIf="clientLastName.errors?.required && clientLastName.touched" class="invalid-feedback">
@@ -46,7 +46,7 @@
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" 
-          [ngClass]="{'is-invalid':clientEmail.errors?.required && clientEmail.touched || clientEmail.errors?.pattern,
+          [ngClass]="{'is-invalid':clientEmail.invalid && clientEmail.touched,
           'is-valid':clientEmail.dirty && clientEmail.valid}"
           [(ngModel)]="client.email" name="email" #clientEmail="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
         <div *ngIf="clientEmail.errors?.required && clientEmail.touched" class="invalid-feedback">
@@ -60,7 +60,7 @@
       <div class="form-group">
         <label for="phone">Phone</label>
         <input type="text" class="form-control" 
-          [ngClass]="{'is-invalid':clientPhone.errors?.required && clientPhone.touched || clientPhone.errors?.minlength,
+          [ngClass]="{'is-invalid':clientPhone.invalid && clientPhone.touched,
           'is-valid':clientPhone.dirty && clientPhone.valid}"
           [(ngModel)]="client.phone" name="phone" #clientPhone="ngModel" minlength="10" required>
         <div *ngIf="clientPhone.errors?.required && clientPhone.touched" class="invalid-feedback">

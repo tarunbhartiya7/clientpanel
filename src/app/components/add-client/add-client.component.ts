@@ -3,6 +3,7 @@ import { Client } from './../../models/client.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ClientService } from './../../services/client/client.service';
+
 @Component({
   selector: 'app-add-client',
   templateUrl: './add-client.component.html',
@@ -21,11 +22,13 @@ export class AddClientComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(value: Client){
+  onSubmit({value}: {value: Client}){
+    //This is shorthand, you can also pass client from html instead of the form
     this.disableBalanceOnAdd ? value.balance = 0 : false;
     // Add new client
-    this.clientService.addClient(value);
-    this.flashMessagesService.show('New client added', {cssClass: 'alert-success', timeout: 4000});        
+    this.clientService.newClient(value);
+    this.flashMessagesService.show('New client has been successfully added.', {cssClass: 'alert-success', timeout: 3000});   
+    // this.flashMessagesService.grayOut(true); // turn on gray out feature     
     this.router.navigate(['/']);  //navigate to the dashboard
   }
 
