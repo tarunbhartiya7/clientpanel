@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);  //redirect the user to dashboard if login is successfull      
       })
       .catch(err =>{
-        this.flashMessagesService.show('Email/Password is incorrect', {cssClass: 'alert-danger', timeout: 3000});    
+        this.flashMessagesService.show(err.message + ' Please try with valid email/password.', {cssClass: 'alert-danger', timeout: 4000});    
         // this.router.navigate(['/login']);
       })
   }
