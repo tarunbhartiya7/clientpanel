@@ -18,7 +18,7 @@ export class EditClientComponent implements OnInit {
     phone: '',
     balance: 0
   }
-  disableBalanceOnEdit: boolean = true;
+  disableBalanceOnEdit: boolean = false;
   constructor(
     public flashMessagesService: FlashMessagesService,
     public router: Router,

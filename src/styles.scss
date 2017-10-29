@@ -7,11 +7,6 @@ a{
     cursor: pointer;
 }
 
-.alert-success{
-    border: 1px solid green !important;
-    content: 'icon placeholder';
-}
-
 /* Form Validation CSS */
 .form-control.is-invalid:focus, .form-control.is-invalid{
     border-color:  #d3d3d3 !important;
@@ -72,13 +67,29 @@ a{
 .flash-message{
     z-index: 10000;
     position: fixed;
-    padding-top: 30px !important;
-    padding-bottom: 30px !important;
     font-size: 18px;
     color: #fff !important;
-    background-color: #51A351 !important;
-    top: 12px;
+    bottom: 12px;
     right: 12px;
     opacity: 0.8;
+    margin: 0 0 6px;
+    padding: 35px 15px 35px 20px !important;
+    width: 400px;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.alert-success{
+    background-color: #51A351 !important;    
+    box-shadow: 0 0 12px #999999;     
+    border-color: #51A351 !important;   
+}
+
+.alert-danger{
+    background-color: #BD362F !important;
     box-shadow: 0 0 12px #999999;
+    border-color: #BD362F !important;
+    // background-image: url('./assets/img/round-error-icon.jpg');
+    // background-image: url('./assets/img/error.png');
+    // background-position: 0px center;
+    // background-repeat: no-repeat;
 }
