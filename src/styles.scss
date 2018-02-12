@@ -7,7 +7,7 @@ a{
     cursor: pointer;
 }
 
-/* Form Validation CSS */
+/* Form CSS */
 .form-control.is-invalid:focus, .form-control.is-invalid{
     border-color:  #d3d3d3 !important;
     box-shadow: 0 -2px 0 #ff5252 inset,0 0 0 1px #e0e0e0 inset !important;
@@ -26,7 +26,11 @@ a{
     margin: 0;
     padding: 0;
 }
-/* Form Validation CSS */
+
+.form-control{
+    line-height: 1 !important;
+}
+/* Form CSS */
 
 // .flash-message{
 //     position: fixed;

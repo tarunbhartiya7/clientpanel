@@ -19,16 +19,17 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
 
-  onSubmit(){
+  onSubmit() {
     this.authService.login(this.email, this.password)
       .then(res => {
-        this.flashMessagesService.show('You are logged in successfully', {cssClass: 'alert-success', timeout: 3000});    
+        this.flashMessagesService.show('You are logged in successfully', { cssClass: 'alert-success', timeout: 3000 });
         this.router.navigate(['/']);  //redirect the user to dashboard if login is successfull      
       })
-      .catch(err =>{
-        this.flashMessagesService.show(err.message + ' Please try with valid email/password.', {cssClass: 'alert-danger', timeout: 4000});    
+      .catch(err => {
+        this.flashMessagesService.show(err.message + ' Please try with valid email/password.', { cssClass: 'alert-danger', timeout: 4000 });
         // this.router.navigate(['/login']);
       })
   }

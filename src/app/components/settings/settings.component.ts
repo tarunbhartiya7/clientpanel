@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { SettingsService } from './../../services/settings.service';
+import { Settings } from './../../models/Settings';
 
 @Component({
   selector: 'app-settings',
@@ -6,10 +10,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
+  settings: Settings;
 
-  constructor() { }
+  constructor(
+    public flashMessagesService: FlashMessagesService,
+    public router: Router,
+    public settingsService: SettingsService
+  ) { }
 
   ngOnInit() {
+    this.settings = this.settingsService.getSettings();
+  }
+
+  onSubmit(){
+    this.settingsService.changeSettings(this.settings);
+    this.flashMessagesService.show('Settings have been saved successfully.', {cssClass: 'alert-success', timeout: 3000});   
+    // this.flashMessagesService.grayOut(true); // turn on gray out feature     
+    this.router.navigate(['/']);  //navigate to the dashboard 
   }
 
 }
